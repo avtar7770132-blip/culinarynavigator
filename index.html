@@ -3,87 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Кулинарный Штурман · Рецепты, расчеты, таймеры</title>
-<link rel="stylesheet" href="styles.css"><link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Блог Кулинарного Штурмана</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 <div class="container">
-
-<!-- HERO BANNER -->
-<div class="hero-section">
-  <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
-    <defs>
-      <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#deb887"/><stop offset="100%" stop-color="#cd853f"/></linearGradient>
-      <radialGradient id="tomatoGrad" cx="30%" cy="30%"><stop offset="0%" stop-color="#ff6b6b"/><stop offset="100%" stop-color="#c92a2a"/></radialGradient>
-    </defs>
-    <!-- Background Table -->
-    <rect width="1200" height="400" fill="#FFF8E7"/>
-    <!-- Wooden Board -->
-    <path d="M200 150 Q600 100 1000 150 L1000 350 Q600 400 200 350 Z" fill="url(#wood)" opacity=".9"/>
-    <!-- Knife -->
-    <g transform="translate(300 200) rotate(-15)">
-      <path d="M0 0 L150 -20 L160 0 L10 20 Z" fill="#ccc"/>
-      <rect x="-40" y="-5" width="50" height="20" rx="5" fill="#3D405B"/>
-    </g>
-    <!-- Tomato -->
-    <circle cx="700" cy="250" r="60" fill="url(#tomatoGrad)"/>
-    <path d="M700 190 Q710 180 720 190 Q710 200 700 190Z" fill="#2ecc71"/>
-    <!-- Basil Leaves -->
-    <ellipse cx="800" cy="220" rx="20" ry="10" fill="#81B29A" transform="rotate(30 800 220)"/>
-    <ellipse cx="820" cy="240" rx="18" ry="9" fill="#81B29A" transform="rotate(-20 820 240)"/>
-    <!-- Flour Bowl -->
-    <circle cx="400" cy="280" r="40" fill="#fff" stroke="#ddd" stroke-width="2"/>
-    <path d="M380 270 Q400 260 420 270" stroke="#eee" stroke-width="2" fill="none"/>
-  </svg>
-  <div class="hero-text-overlay">
-    <h2>🍳 Кулинарный Штурман</h2>
-    <p>Готовь вкусно. Считай точно.</p>
-  </div>
-</div>
-
-<header>
-<h1>Твои кухонные помощники</h1>
-<p class="subtitle">Бесплатные инструменты для дома: пересчет рецептов, стоимость блюд, таймеры и конвертеры мер.</p>
-</header>
-
-<div class="filters">
-<button onclick="filterCards('all')" class="filter-btn active" id="btn-all">Все</button>
-<button onclick="filterCards('calc')" class="filter-btn" id="btn-calc">🧮 Калькуляторы</button>
-<button onclick="filterCards('tool')" class="filter-btn" id="btn-tool">⏱ Инструменты</button>
-<button onclick="filterCards('blog')" class="filter-btn" id="btn-blog">📚 Статьи</button>
-</div>
-
-<div class="ad-banner">[ Место для рекламы: Посуда, продукты, доставка еды ]</div>
-
+<header style="margin-bottom:20px"><a href="../index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>📖 Блог шеф-повара</h1>
+<p class="subtitle">Наука вкуса, экономия времени и денег. Читай и готовь уверенно.</p>
 <div class="grid-container">
-<!-- CALCULATORS -->
-<a href="recipe-scaler.html" class="card fade-in-up" data-category="calc"><div class="card-icon">🥣</div><div class="card-title">Пересчет рецепта</div><div class="card-desc">Масштабируй ингредиенты под любое количество гостей. От 1 до 100 порций за секунду.</div><span class="btn-link">Рассчитать →</span></a>
-<a href="food-cost.html" class="card fade-in-up" data-category="calc"><div class="card-icon">💰</div><div class="card-title">Стоимость блюда</div><div class="card-desc">Узнай себестоимость обеда. Сравнение с доставкой из ресторана.</div><span class="btn-link">Посчитать →</span></a>
-<a href="unit-converter.html" class="card fade-in-up" data-category="calc"><div class="card-icon">📏</div><div class="card-title">Конвертер мер</div><div class="card-desc">Стаканы в граммы, унции в ложки. Интерактивный перевод любых единиц.</div><span class="btn-link">Перевести →</span></a>
-<a href="calorie-counter.html" class="card fade-in-up" data-category="calc"><div class="card-icon">🔥</div><div class="card-title">КБЖУ продукта</div><div class="card-desc">Калории, белки, жиры, углеводы. Расчет дневной нормы для похудения или набора.</div><span class="btn-link">Проверить →</span></a>
-<a href="marinade-calculator.html" class="card fade-in-up" data-category="calc"><div class="card-icon">🥩</div><div class="card-title">Маринад для мяса</div><div class="card-desc">Идеальные пропорции соли, сахара, кислоты и специй для свинины, курицы и рыбы.</div><span class="btn-link">Смешать →</span></a>
-<a href="coffee-brewing.html" class="card fade-in-up" data-category="calc"><div class="card-icon">☕</div><div class="card-title">Кофе-бариста</div><div class="card-desc">Рецепт эспрессо, капучино и латте. Точный вес зерна и воды для идеального вкуса.</div><span class="btn-link">Сварить →</span></a>
-
-<!-- TOOLS -->
-<a href="kitchen-timer.html" class="card fade-in-up" data-category="tool"><div class="card-icon">⏲️</div><div class="card-title">Таймер готовки</div><div class="card-desc">Онлайн-секундомер с звуковым сигналом. Яйца всмятку, стейк прожарки medium rare.</div><span class="btn-link">Запустить →</span></a>
-<a href="meal-planner.html" class="card fade-in-up" data-category="tool"><div class="card-icon">📅</div><div class="card-title">План меню на неделю</div><div class="card-desc">Составь рацион из 7 дней. Автоматический список покупок на основе плана.</div><span class="btn-link">Спланировать →</span></a>
-
-<!-- BLOG LINK -->
-<a href="blog/index.html" class="card fade-in-up" data-category="blog"><div class="card-icon">📖</div><div class="card-title">Блог шеф-повара</div><div class="card-desc">10 статей: от науки варки яиц до экономии на продуктах. Читай и готовь!</div><span class="btn-link">Читать →</span></a>
+<!-- СТАРЫЕ 4 -->
+<article class="card fade-in-up"><div><span style="background:#E07A5F;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ЯЙЦА</span><h3 class="card-title" style="margin-top:10px">Почему 2 минуты решают всё при варке яиц</h3><p class="card-desc">Разница между всмятку и вкрутую крошечная. Узнай точное время для идеального желтка.</p></div><a href="science-of-boiling-eggs.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<article class="card fade-in-up"><div><span style="background:#81B29A;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ЭКОНОМИКА</span><h3 class="card-title" style="margin-top:10px">Домашняя пицца vs Доставка: честный расчет</h3><p class="card-desc">Сколько стоит настоящая Маргарита из печи? Считаем себестоимость и сравниваем с доставкой.</p></div><a href="pizza-vs-delivery.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<article class="card fade-in-up"><div><span style="background:#f2cc8f;color:#3D405B;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ИНГРЕДИЕНТЫ</span><h3 class="card-title" style="margin-top:10px">Мука высшего сорта или первого? Что выбрать</h3><p class="card-desc">Не все виды муки одинаковы. Разбираем клейковину, белизну и влияние на тесто.</p></div><a href="flour-types-explained.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<article class="card fade-in-up"><div><span style="background:#3D405B;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">НАПИТКИ</span><h3 class="card-title" style="margin-top:10px">Золотое правило кофе: пропорции для бариста дома</h3><p class="card-desc">Как сварить эспрессо и капучино без дорогой машины. Вес зерна, воды и молока.</p></div><a href="coffee-ratios-guide.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<!-- НОВЫЕ 4 -->
+<article class="card fade-in-up"><div><span style="background:#c96a50;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">МЯСО</span><h3 class="card-title" style="margin-top:10px">Мастер-класс по маринадам: секрет сочного мяса</h3><p class="card-desc">Кислота, жир, соль и сахар. Формула идеального баланса для шашлыка и запеканки.</p></div><a href="marinade-masterclass.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<article class="card fade-in-up"><div><span style="background:#eab308;color:#333;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ЗДОРОВЬЕ</span><h3 class="card-title" style="margin-top:10px">Мифы о калориях: почему «пустые» калории — это неправда</h3><p class="card-desc">Что такое КБЖУ на самом деле и почему важен не только итоговый вес блюда.</p></div><a href="calories-myths.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<article class="card fade-in-up"><div><span style="background:#10b981;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ПЛАН</span><h3 class="card-title" style="margin-top:10px">Meal Prep: как готовить всю неделю за 2 часа</h3><p class="card-desc">Лайфхак занятых людей. Воскресное утро обеспечит тебя здоровой едой на 5 дней.</p></div><a href="meal-prep-weekend.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<article class="card fade-in-up"><div><span style="background:#8b5cf6;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">СПЕЦИИ</span><h3 class="card-title" style="margin-top:10px">Где хранить специи, чтобы они не выдохлись</h3><p class="card-desc">Свет, тепло и влага — три врага пряностей. Как продлить жизнь твоим приправам.</p></div><a href="spices-storage.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
 </div>
-
-<footer>© 2026 Кулинарный Штурман · Все расчеты справочные. Приятного аппетита!</footer>
+<footer>© 2026 Кулинарный Штурман · Все расчеты справочные.</footer>
 </div>
-<script>
-function filterCards(category){
-const cards=document.querySelectorAll('.card');
-const buttons=document.querySelectorAll('.filter-btn');
-buttons.forEach(b=>{b.classList.remove('active');if(b.id==='btn-'+category)b.classList.add('active');});
-cards.forEach(c=>{
-if(category==='all'||c.dataset.category===category){c.style.display='flex';c.style.animation='none';c.offsetHeight;c.style.animation=null;}
-else{c.style.display='none';}
-});
-}
-</script>
 </body>
 </html>
