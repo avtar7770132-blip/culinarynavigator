@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кофе-бариста — Кулинарный Штурман</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>☕ Кофе-бариста</h1>
+<p class="subtitle">Идеальная пропорция для твоего напитка.</p>
+<div class="calc-wrapper">
+<div class="form-group"><label>Тип напитка</label>
+<select id="drinkType">
+<option value="espresso">Эспрессо (1:2)</option>
+<option value="americano">Американо (1:4)</option>
+<option value="latte">Латте (1:5 + молоко)</option>
+<option value="cappuccino">Капучино (1:3 + молоко)</option>
+</select></div>
+<div class="form-group"><label>Объем чашки (мл)</label><input type="number" id="cupSize" value="200"></div>
+<button onclick="calcCoffee()" class="btn-link" style="width:100%">Рассчитать</button>
+<div id="resCoffee" class="result-box"></div>
+</div>
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+<script>
+function calcCoffee(){
+const type=document.getElementById('drinkType').value;
+const vol=parseInt(document.getElementById('cupSize').value);
+let coffeeRatio, milkNeeded=false;
+switch(type){
+case 'espresso': coffeeRatio=1/2; break;
+case 'americano': coffeeRatio=1/4; break;
+case 'latte': coffeeRatio=1/5; milkNeeded=true; break;
+case 'cappuccino': coffeeRatio=1/3; milkNeeded=true; break;
+default: coffeeRatio=1/3;
+}
+const coffeeGrams = Math.round(vol * coffeeRatio * 0.1); // Approx density factor
+const waterMl = Math.round(vol * (milkNeeded ? 0.3 : 1));
+const milkMl = milkNeeded ? Math.round(vol * 0.7) : 0;
+let html = `<h3>Рецепт для ${vol} мл:</h3><ul>`;
+html += `<li>☕ Молотый кофе: <strong>${coffeeGrams} гр</strong></li>`;
+html += `<li>💧 Горячая вода/пар: <strong>${waterMl} мл</strong></li>`;
+if(milkNeeded) html += `<li>🥛 Молоко: <strong>${milkMl} мл</strong></li>`;
+html += `</ul><div class="ti">💡 Совет: взвесь зерна перед помолом для точности.</div>`;
+document.getElementById('resCoffee').innerHTML=html;
+document.getElementById('resCoffee').classList.add('show');
+}
+</script>
+</body>
+</html>
