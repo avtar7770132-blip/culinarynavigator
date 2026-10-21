@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Фон круга -->
+  <circle cx="32" cy="32" r="30" fill="#FFF8E7"/>
+  <!-- Сковорода -->
+  <path d="M15 40 Q32 55 49 40 L49 45 Q32 60 15 45 Z" fill="#E07A5F"/>
+  <!-- Ручка сковороды -->
+  <rect x="48" y="41" width="12" height="4" rx="2" fill="#3D405B"/>
+  <!-- Яичница (желток) -->
+  <ellipse cx="32" cy="35" rx="10" ry="8" fill="#FFD700"/>
+  <!-- Белок -->
+  <path d="M22 35 Q32 25 42 35 Q42 42 32 42 Q22 42 22 35Z" fill="#FFFFFF" opacity=".9"/>
+</svg>
