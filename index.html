@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кулинарный Штурман · Рецепты, расчеты, таймеры</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+
+<!-- HERO BANNER -->
+<div class="hero-section">
+  <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+    <defs>
+      <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#deb887"/><stop offset="100%" stop-color="#cd853f"/></linearGradient>
+      <radialGradient id="tomatoGrad" cx="30%" cy="30%"><stop offset="0%" stop-color="#ff6b6b"/><stop offset="100%" stop-color="#c92a2a"/></radialGradient>
+    </defs>
+    <!-- Background Table -->
+    <rect width="1200" height="400" fill="#FFF8E7"/>
+    <!-- Wooden Board -->
+    <path d="M200 150 Q600 100 1000 150 L1000 350 Q600 400 200 350 Z" fill="url(#wood)" opacity=".9"/>
+    <!-- Knife -->
+    <g transform="translate(300 200) rotate(-15)">
+      <path d="M0 0 L150 -20 L160 0 L10 20 Z" fill="#ccc"/>
+      <rect x="-40" y="-5" width="50" height="20" rx="5" fill="#3D405B"/>
+    </g>
+    <!-- Tomato -->
+    <circle cx="700" cy="250" r="60" fill="url(#tomatoGrad)"/>
+    <path d="M700 190 Q710 180 720 190 Q710 200 700 190Z" fill="#2ecc71"/>
+    <!-- Basil Leaves -->
+    <ellipse cx="800" cy="220" rx="20" ry="10" fill="#81B29A" transform="rotate(30 800 220)"/>
+    <ellipse cx="820" cy="240" rx="18" ry="9" fill="#81B29A" transform="rotate(-20 820 240)"/>
+    <!-- Flour Bowl -->
+    <circle cx="400" cy="280" r="40" fill="#fff" stroke="#ddd" stroke-width="2"/>
+    <path d="M380 270 Q400 260 420 270" stroke="#eee" stroke-width="2" fill="none"/>
+  </svg>
+  <div class="hero-text-overlay">
+    <h2>🍳 Кулинарный Штурман</h2>
+    <p>Готовь вкусно. Считай точно.</p>
+  </div>
+</div>
+
+<header>
+<h1>Твои кухонные помощники</h1>
+<p class="subtitle">Бесплатные инструменты для дома: пересчет рецептов, стоимость блюд, таймеры и конвертеры мер.</p>
+</header>
+
+<div class="filters">
+<button onclick="filterCards('all')" class="filter-btn active" id="btn-all">Все</button>
+<button onclick="filterCards('calc')" class="filter-btn" id="btn-calc">🧮 Калькуляторы</button>
+<button onclick="filterCards('tool')" class="filter-btn" id="btn-tool">⏱ Инструменты</button>
+<button onclick="filterCards('blog')" class="filter-btn" id="btn-blog">📚 Статьи</button>
+</div>
+
+<div class="ad-banner">[ Место для рекламы: Посуда, продукты, доставка еды ]</div>
+
+<div class="grid-container">
+<!-- CALCULATORS -->
+<a href="recipe-scaler.html" class="card fade-in-up" data-category="calc"><div class="card-icon">🥣</div><div class="card-title">Пересчет рецепта</div><div class="card-desc">Масштабируй ингредиенты под любое количество гостей. От 1 до 100 порций за секунду.</div><span class="btn-link">Рассчитать →</span></a>
+<a href="food-cost.html" class="card fade-in-up" data-category="calc"><div class="card-icon">💰</div><div class="card-title">Стоимость блюда</div><div class="card-desc">Узнай себестоимость обеда. Сравнение с доставкой из ресторана.</div><span class="btn-link">Посчитать →</span></a>
+<a href="unit-converter.html" class="card fade-in-up" data-category="calc"><div class="card-icon">📏</div><div class="card-title">Конвертер мер</div><div class="card-desc">Стаканы в граммы, унции в ложки. Интерактивный перевод любых единиц.</div><span class="btn-link">Перевести →</span></a>
+<a href="calorie-counter.html" class="card fade-in-up" data-category="calc"><div class="card-icon">🔥</div><div class="card-title">КБЖУ продукта</div><div class="card-desc">Калории, белки, жиры, углеводы. Расчет дневной нормы для похудения или набора.</div><span class="btn-link">Проверить →</span></a>
+<a href="marinade-calculator.html" class="card fade-in-up" data-category="calc"><div class="card-icon">🥩</div><div class="card-title">Маринад для мяса</div><div class="card-desc">Идеальные пропорции соли, сахара, кислоты и специй для свинины, курицы и рыбы.</div><span class="btn-link">Смешать →</span></a>
+<a href="coffee-brewing.html" class="card fade-in-up" data-category="calc"><div class="card-icon">☕</div><div class="card-title">Кофе-бариста</div><div class="card-desc">Рецепт эспрессо, капучино и латте. Точный вес зерна и воды для идеального вкуса.</div><span class="btn-link">Сварить →</span></a>
+
+<!-- TOOLS -->
+<a href="kitchen-timer.html" class="card fade-in-up" data-category="tool"><div class="card-icon">⏲️</div><div class="card-title">Таймер готовки</div><div class="card-desc">Онлайн-секундомер с звуковым сигналом. Яйца всмятку, стейк прожарки medium rare.</div><span class="btn-link">Запустить →</span></a>
+<a href="meal-planner.html" class="card fade-in-up" data-category="tool"><div class="card-icon">📅</div><div class="card-title">План меню на неделю</div><div class="card-desc">Составь рацион из 7 дней. Автоматический список покупок на основе плана.</div><span class="btn-link">Спланировать →</span></a>
+
+<!-- BLOG LINK -->
+<a href="blog/index.html" class="card fade-in-up" data-category="blog"><div class="card-icon">📖</div><div class="card-title">Блог шеф-повара</div><div class="card-desc">10 статей: от науки варки яиц до экономии на продуктах. Читай и готовь!</div><span class="btn-link">Читать →</span></a>
+</div>
+
+<footer>© 2026 Кулинарный Штурман · Все расчеты справочные. Приятного аппетита!</footer>
+</div>
+<script>
+function filterCards(category){
+const cards=document.querySelectorAll('.card');
+const buttons=document.querySelectorAll('.filter-btn');
+buttons.forEach(b=>{b.classList.remove('active');if(b.id==='btn-'+category)b.classList.add('active');});
+cards.forEach(c=>{
+if(category==='all'||c.dataset.category===category){c.style.display='flex';c.style.animation='none';c.offsetHeight;c.style.animation=null;}
+else{c.style.display='none';}
+});
+}
+</script>
+</body>
+</html>
