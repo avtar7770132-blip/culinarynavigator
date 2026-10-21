@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор маринада — Кулинарный Штурман</title>
+<link rel="stylesheet" href="styles.css">
+<style>.ratio-bar{height:20px;background:#ddd;border-radius:10px;overflow:hidden;display:flex;margin:10px 0}.ratio-segment{height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem;font-weight:bold}</style>
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>🥩 Идеальный маринад</h1>
+<p class="subtitle">Золотые пропорции соли, сахара и кислоты для сочного шашлыка или запеканки.</p>
+<div class="calc-wrapper">
+<div class="form-group"><label for="meatType">Тип мяса</label>
+<select id="meatType">
+<option value="pork">Свинина (шейка/лопатка)</option>
+<option value="beef">Говядина</option>
+<option value="chicken">Курица (грудка/бедра)</option>
+<option value="fish">Рыба (жирная)</option>
+</select></div>
+<div class="form-group"><label for="meatWeight">Вес мяса (кг)</label><input type="number" id="meatWeight" value="1" step="0.1" min="0.1"></div>
+<button onclick="calcMarinade()" class="btn-link" style="width:100%">Смешать маринад</button>
+<div id="resMarinade" class="result-box"></div>
+</div>
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+<script>
+// Base ratios per kg of meat
+const RECIPES = {
+pork: { salt: 15, sugar: 10, acid_ml: 30, oil_ml: 50, spices: 'Черный перец, паприка, чеснок' },
+beef: { salt: 12, sugar: 8, acid_ml: 40, oil_ml: 40, spices: 'Тимьян, розмарин, черный перец' },
+chicken: { salt: 10, sugar: 15, acid_ml: 20, oil_ml: 60, spices: 'Паприка, куркума, сушеный лук' },
+fish: { salt: 8, sugar: 5, acid_ml: 50, oil_ml: 30, spices: 'Лимонник, укроп, белый перец' }
+};
+function calcMarinade(){
+const type = document.getElementById('meatType').value;
+const weightKg = parseFloat(document.getElementById('meatWeight').value);
+if(!type || !weightKg) return alert("Заполните данные");
+const r = RECIPES[type];
+const sSalt = Math.round(r.salt * weightKg);
+const sSugar = Math.round(r.sugar * weightKg);
+const sAcid = Math.round(r.acid_ml * weightKg);
+const sOil = Math.round(r.oil_ml * weightKg);
+// Visual bar logic (normalized to max values roughly)
+const maxVal = 100; 
+const wSalt = (sSalt/maxVal)*100; const wSugar=(sSugar/maxVal)*100; const wAcid=(sAcid/maxVal)*100; const wOil=(sOil/maxVal)*100;
+let html = `<h3>Маринад для ${weightKg} кг мяса (${type==='pork'?'Свинина':type==='beef'?'Говядина':type==='chicken'?'Курица':'Рыба'}):</h3>`;
+html += `<ul>`;
+html += `<li>🧂 Соль: <strong>${sSalt} г</strong> (~${Math.round(sSalt/5)} ч.л.)</li>`;
+html += `<li>🍬 Сахар: <strong>${sSugar} г</strong> (~${Math.round(sSugar/5)} ч.л.)</li>`;
+html += `<li>🍋 Кислота (уксус/лимон): <strong>${sAcid} мл</strong></li>`;
+html += `<li>🫒 Масло растительное: <strong>${sOil} мл</strong></li>`;
+html += `<li>🌿 Специи: <em>${r.spices}</em></li>`;
+html += `</ul>`;
+html += `<div class="ratio-bar">
+<div class="ratio-segment" style="width:${wSalt}%;background:#e07a5f">Соль</div>
+<div class="ratio-segment" style="width:${wSugar}%;background:#f2cc8f">Сахар</div>
+<div class="ratio-segment" style="width:${wAcid}%;background:#81b29a">Кислота</div>
+<div class="ratio-segment" style="width:${wOil}%;background:#3d405b">Масло</div>
+</div>`;
+html += `<div class="ti">💡 Совет: Маринуй мясо минимум 2 часа, лучше ночь в холодильнике. Для рыбы хватит 30 минут.</div>`;
+document.getElementById('resMarinade').innerHTML = html;
+document.getElementById('resMarinade').classList.add('show');
+}
+</script>
+</body>
+</html>
