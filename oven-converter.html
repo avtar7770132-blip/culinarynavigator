@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Конвертер духовки — Кулинарный Штурман</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+.slider-container{margin:30px 0}
+input[type=range]{width:100%;height:8px;background:#ddd;border-radius:5px;outline:none;-webkit-appearance:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:25px;height:25px;background:var(--accent);border-radius:50%;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+.temp-display{text-align:center;font-size:2rem;font-weight:bold;color:var(--text);margin-bottom:10px}
+.mode-badge{display:inline-block;padding:5px 10px;border-radius:15px;font-size:.8rem;font-weight:bold;margin-left:10px}
+.gas-mode{background:#ffedd5;color:#c2410c}
+.elec-mode{background:#dbeafe;color:#1e40af}
+.chart-row{display:flex;justify-content:space-between;padding:10px;border-bottom:1px solid #eee}
+.chart-row:last-child{border:none}
+.highlight{background:#fef9c3;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>🔥 Конвертер режимов духовки</h1>
+<p class="subtitle">Переводи старые рецепты из газовой плиты в электрическую или американские градусы Фаренгейта.</p>
+
+<div class="calc-wrapper">
+<div class="temp-display" id="mainTemp">180°C</div>
+<div style="text-align:center;margin-bottom:20px">
+<span class="mode-badge gas-mode">Газ: Средняя</span>
+<span class="mode-badge elec-mode">Электро: 180°C / 356°F</span>
+</div>
+
+<div class="slider-container">
+<label>Двигай ползунок температуры:</label>
+<input type="range" id="tempSlider" min="50" max="300" value="180" step="10">
+</div>
+
+<h3>Шпаргалка соответствий</h3>
+<div style="background:#f9f9f9;padding:15px;border-radius:10px;margin-top:15px">
+<div class="chart-row highlight" id="row-low"><span>Слабый нагрев</span><span>Газ 1-2</span><span>120-140°C</span></div>
+<div class="chart-row" id="row-med"><span>Средний нагрев</span><span>Газ 3-5</span><span>160-180°C</span></div>
+<div class="chart-row" id="row-high"><span>Сильный нагрев</span><span>Газ 6-8</span><span>200-230°C</span></div>
+<div class="chart-row" id="row-max"><span>Гриль/Максимум</span><span>Газ 9+</span><span>250°C+</span></div>
+</div>
+
+<div class="ti" style="margin-top:20px;background:#dcfce7;padding:15px;border-radius:8px">
+<strong>💡 Совет шефа:</strong> Электрические духовки часто греют неравномерно. Если рецепт говорит "средняя", а у тебя конвекция — убавь температуру на 20 градусов. Для безе и сушки фруктов используй минимальный режим с приоткрытой дверцей.
+</div>
+</div>
+
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+
+<script>
+const slider = document.getElementById('tempSlider');
+const display = document.getElementById('mainTemp');
+const badges = document.querySelectorAll('.mode-badge');
+
+function updateConversion() {
+    const celsius = parseInt(slider.value);
+    const fahrenheit = Math.round((celsius * 9/5) + 32);
+    
+    display.innerText = `${celsius}°C`;
+    
+    // Определяем уровень газа условно
+    let gasLevel = "";
+    if(celsius < 140) gasLevel = "Минимальный";
+    else if(celsius < 180) gasLevel = "Низкий";
+    else if(celsius < 220) gasLevel = "Средний";
+    else if(celsius < 260) gasLevel = "Высокий";
+    else gasLevel = "Максимальный";
+
+    // Обновляем бейджи
+    badges[0].innerText = `Газ: ${gasLevel}`;
+    badges[1].innerText = `Электро: ${celsius}°C / ${fahrenheit}°F`;
+
+    // Подсветка строки в таблице
+    document.querySelectorAll('.chart-row').forEach(r => r.classList.remove('highlight'));
+    if(celsius <= 140) document.getElementById('row-low').classList.add('highlight');
+    else if(celsius <= 180) document.getElementById('row-med').classList.add('highlight');
+    else if(celsius <= 230) document.getElementById('row-high').classList.add('highlight');
+    else document.getElementById('row-max').classList.add('highlight');
+}
+
+slider.addEventListener('input', updateConversion);
+updateConversion(); // Init
+</script>
+</body>
+</html>
