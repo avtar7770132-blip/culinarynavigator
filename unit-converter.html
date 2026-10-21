@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Конвертер мер — Кулинарный Штурман</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>📏 Конвертер мер</h1>
+<p class="subtitle">Граммы ↔ Стаканы ↔ Ложки</p>
+<div class="calc-wrapper">
+<div class="form-group">
+<label>Выберите продукт</label>
+<select id="productSelect">
+<option value="flour">Мука (стакан ≈ 130г)</option>
+<option value="sugar">Сахар (стакан ≈ 200г)</option>
+<option value="rice">Рис (стакан ≈ 180г)</option>
+<option value="oil">Масло растительное (стакан ≈ 220г)</option>
+<option value="milk">Молоко (стакан ≈ 250мл)</option>
+</select>
+</div>
+<div class="form-group">
+<label>Вес в граммах (или мл): <span id="gramDisplay">100</span></label>
+<input type="range" id="gramSlider" min="1" max="1000" value="100" style="width:100%">
+</div>
+<div class="result-box show" style="margin-top:20px">
+<h3>Результат перевода:</h3>
+<ul id="conversionResults"></ul>
+</div>
+</div>
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+<script>
+const DATA = {
+flour: { cup: 130, tbsp: 10, tsp: 3 },
+sugar: { cup: 200, tbsp: 25, tsp: 8 },
+rice: { cup: 180, tbsp: 15, tsp: 5 },
+oil: { cup: 220, tbsp: 17, tsp: 5 },
+milk: { cup: 250, tbsp: 15, tsp: 5 } // ml approximated as grams for simplicity here
+};
+function updateConversion() {
+const prod = document.getElementById('productSelect').value;
+const grams = parseInt(document.getElementById('gramSlider').value);
+document.getElementById('gramDisplay').innerText = grams;
+const rates = DATA[prod];
+const cups = (grams / rates.cup).toFixed(2);
+const tbsps = (grams / rates.tbsp).toFixed(1);
+const tsps = Math.round(grams / rates.tsp);
+document.getElementById('conversionResults').innerHTML = `
+<li>🥤 Стаканов: <strong>${cups}</strong></li>
+<li>🥄 Столовых ложек: <strong>${tbsps}</strong></li>
+<li> Чайных ложек: <strong>${tsps}</strong></li>
+`;
+}
+document.getElementById('productSelect').addEventListener('change', updateConversion);
+document.getElementById('gramSlider').addEventListener('input', updateConversion);
+updateConversion(); // Init
+</script>
+</body>
+</html>
