@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор КБЖУ — Кулинарный Штурман</title>
+<link rel="stylesheet" href="styles.css">
+<style>.db-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:20px}.db-item{background:#f9f9f9;padding:10px;border-radius:8px;text-align:center;cursor:pointer;border:2px solid transparent;transition:.3s}.db-item:hover,.db-item.selected{border-color:var(--accent);background:#fff}.daily-norms{display:flex;justify-content:space-between;margin-top:20px;font-weight:bold;color:var(--secondary)}</style>
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>🔥 Калькулятор КБЖУ</h1>
+<p class="subtitle">Узнай калорийность любимого блюда и сравни с дневной нормой.</p>
+<div class="calc-wrapper">
+<div class="form-group"><label for="foodSelect">Выберите продукт из базы:</label>
+<select id="foodSelect"></select></div>
+<div class="form-group"><label for="weightInput">Вес порции (грамм):</label><input type="number" id="weightInput" value="100" min="1"></div>
+<button onclick="calculateCalories()" class="btn-link" style="width:100%">Рассчитать</button>
+<div id="resultCal" class="result-box"></div>
+<div class="daily-norms"><span>Дневная норма (женщины): ~1800 ккал</span><span>(мужчины): ~2400 ккал</span></div>
+</div>
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+<script>
+const FOOD_DB = {
+apple: {name:'Яблоко', kcal:52, protein:0.3, fat:0.2, carbs:14},
+banana: {name:'Банан', kcal:89, protein:1.1, fat:0.3, carbs:23},
+chicken_breast: {name:'Куриная грудка', kcal:110, protein:23, fat:1.2, carbs:0},
+beef_stew: {name:'Говядина тушеная', kcal:250, protein:20, fat:18, carbs:0},
+rice_boiled: {name:'Рис отварной', kcal:130, protein:2.7, fat:0.3, carbs:28},
+potato_mashed: {name:'Картофельное пюре', kcal:120, protein:2, fat:5, carbs:16},
+bread_white: {name:'Хлеб белый', kcal:265, protein:8, fat:3.5, carbs:50},
+egg_boiled: {name:'Яйцо вареное', kcal:155, protein:13, fat:11, carbs:1.1},
+cheese_russian: {name:'Сыр Российский', kcal:360, protein:23, fat:29, carbs:0.3},
+salad_vegetable: {name:'Салат овощной (с маслом)', kcal:120, protein:1, fat:8, carbs:10}
+};
+// Populate dropdown
+const select = document.getElementById('foodSelect');
+for(let key in FOOD_DB){
+const opt = document.createElement('option');
+opt.value = key;
+opt.textContent = FOOD_DB[key].name;
+select.appendChild(opt);
+}
+function calculateCalories(){
+const foodKey = select.value;
+const weight = parseFloat(document.getElementById('weightInput').value);
+if(!foodKey || !weight) return alert("Выберите продукт и вес");
+const data = FOOD_DB[foodKey];
+const factor = weight / 100; // per 100g basis
+const totalKcal = Math.round(data.kcal * factor);
+const totalProtein = (data.protein * factor).toFixed(1);
+const totalFat = (data.fat * factor).toFixed(1);
+const totalCarbs = (data.carbs * factor).toFixed(1);
+let html = `<h3>Итого для ${weight} г (${data.name}):</h3>`;
+html += `<ul><li>🔥 Калории: <strong>${totalKcal} ккал</strong></li>`;
+html += `<li>💪 Белки: <strong>${totalProtein} г</strong></li>`;
+html += `<li>🥑 Жиры: <strong>${totalFat} г</strong></li>`;
+html += `<li>🍞 Углеводы: <strong>${totalCarbs} г</strong></li></ul>`;
+// Percentage of daily norm (approx avg 2000kcal)
+const pctNorm = ((totalKcal / 2000) * 100).toFixed(0);
+html += `<div class="ti">Это составляет <strong>${pctNorm}%</strong> от средней дневной нормы (2000 ккал).</div>`;
+document.getElementById('resultCal').innerHTML = html;
+document.getElementById('resultCal').classList.add('show');
+}
+</script>
+</body>
+</html>
