@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор консервации — Кулинарный Штурман</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>.warning-box{background:#fee2e2;border-left:5px solid #ef4444;padding:15px;margin:20px 0;border-radius:0 8px 8px 0}</style>
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>🥒 Калькулятор маринада для банок</h1>
+<p class="subtitle">Сколько соли, сахара и уксуса нужно, чтобы закатки стояли до лета.</p>
+
+<div class="calc-wrapper">
+<div class="form-group">
+<label>Что закатываем?</label>
+<select id="productType">
+<option value="cucumber">Огурцы (корнишоны/пикули)</option>
+<option value="tomato">Помидоры (целиком)</option>
+<option value="pepper">Перец сладкий</option>
+<option value="mushroom">Грибы (замаринованные)</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Объем одной банки (литры)</label>
+<select id="jarVolume">
+<option value="0.5">0.5 л</option>
+<option value="1" selected>1.0 л</option>
+<option value="2">2.0 л</option>
+<option value="3">3.0 л</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Количество банок</label>
+<input type="number" id="jarCount" value="1" min="1">
+</div>
+
+<button onclick="calcCanning()" class="btn-link" style="width:100%">Рассчитать рассол</button>
+
+<div id="resultCanning" class="result-box"></div>
+
+<div class="warning-box">
+<strong>⚠️ ВАЖНО ПО БЕЗОПАСНОСТИ:</strong><br>
+1. Всегда стерилизуйте крышки кипятком 5–10 минут.<br>
+2. Уксус используйте столовый 9% или яблочный 6%. Не экспериментируйте с эссенцией без разведения!<br>
+3. Если банка вздулась ("бомбаж") — выбрасывайте содержимое немедленно, есть риск ботулизма.
+</div>
+</div>
+
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+
+<script>
+// Базовые нормы на 1 литр воды (маринада)
+// Формат: [Соль г, Сахар г, Уксус 9% мл, Лавровый лист шт, Перец горошком шт]
+const NORMS = {
+    cucumber: { salt: 30, sugar: 40, vinegar: 50, bay: 1, pepper: 5 },
+    tomato:   { salt: 20, sugar: 50, vinegar: 40, bay: 2, pepper: 3 },
+    pepper:   { salt: 25, sugar: 45, vinegar: 30, bay: 1, pepper: 2 },
+    mushroom: { salt: 40, sugar: 20, vinegar: 60, bay: 1, pepper: 4 } // Грибы любят больше кислоты
+};
+
+function calcCanning() {
+    const prod = document.getElementById('productType').value;
+    const vol = parseFloat(document.getElementById('jarVolume').value);
+    const count = parseInt(document.getElementById('jarCount').value);
+    
+    const totalLiters = vol * count;
+    const n = NORMS[prod];
+    
+    // Расчет общего количества
+    const totalSalt = Math.round(n.salt * totalLiters);
+    const totalSugar = Math.round(n.sugar * totalLiters);
+    const totalVinegar = Math.round(n.vinegar * totalLiters);
+    const totalBay = Math.round(n.bay * totalLiters);
+    const totalPepper = Math.round(n.pepper * totalLiters);
+    
+    // Примерный расход воды (обычно занимает 70-80% объема банки, но считаем по объему жидкости для рецептуры)
+    // Примечание: овощи вытесняют воду, поэтому реальный расход воды меньше теоретического объема банок.
+    // Но для расчета СОЛЕЙ мы ориентируемся на объем ЗАЛИВКИ. 
+    
+    let html = `<h3>Ингредиенты на ${count} банок по ${vol} л (${totalLiters} л заливки):</h3>`;
+    html += `<ul>`;
+    html += `<li>💧 Вода (для маринада): <strong>${Math.round(totalLiters * 0.8)} - ${Math.round(totalLiters * 0.9)} литров</strong> (учитывая место под овощи)</li>`;
+    html += `<li>🧂 Соль (крупная, без йода): <strong>${totalSalt} г</strong> (~${Math.round(totalSalt/10)} ст. л. без горки)</li>`;
+    html += `<li>🍬 Сахар: <strong>${totalSugar} г</strong> (~${Math.round(totalSugar/10)} ст. л.)</li>`;
+    html += `<li>🍶 Уксус 9%: <strong>${totalVinegar} мл</strong> (~${Math.round(totalVinegar/20)} ст. л.)</li>`;
+    html += `<li>🍃 Лавровый лист: <strong>${totalBay} шт.</strong></li>`;
+    html += `<li>🌶 Перец горошком: <strong>${totalPepper} шт.</strong></li>`;
+    html += `</ul>`;
+    html += `<div class="ti">💡 Как варить: Закипятите воду с солью и сахаром. Добавьте специи. Снимите с огня. Влейте уксус в самом конце (чтобы не испарился). Заливайте овощи горячим маринадом.</div>`;
+    
+    document.getElementById('resultCanning').innerHTML = html;
+    document.getElementById('resultCanning').classList.add('show');
+}
+</script>
+</body>
+</html>
