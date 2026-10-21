@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Таймер готовки — Кулинарный Штурман</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.controls{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.control-btn{padding:10px 20px;border:none;border-radius:8px;cursor:pointer;font-weight:bold}
+.start{background:var(--secondary);color:#fff}
+.reset{background:#ddd;color:#333}
+.preset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.preset-btn{padding:10px;background:#fff;border:1px solid var(--border);border-radius:8px;cursor:pointer}
+.preset-btn:hover{background:var(--bg)}
+</style>
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>⏲️ Таймер шеф-повара</h1>
+<div class="calc-wrapper" style="text-align:center">
+<div class="timer-circle" id="timerCircle">
+<div class="timer-inner">
+<span class="timer-display" id="timeDisplay">00:00</span>
+<small id="statusText">Готов к старту</small>
+</div>
+</div>
+<div class="controls">
+<button class="control-btn start" id="startBtn">Старт</button>
+<button class="control-btn reset" id="resetBtn">Сброс</button>
+</div>
+<div class="preset-grid">
+<button class="preset-btn" onclick="setTime(60)">Яйцо всмятку (1 мин)</button>
+<button class="preset-btn" onclick="setTime(300)">Паста Аль Денте (5 мин)</button>
+<button class="preset-btn" onclick="setTime(900)">Картофель в мундире (15 мин)</button>
+<button class="preset-btn" onclick="setTime(1800)">Тушение мяса (30 мин)</button>
+<button class="preset-btn" onclick="setTime(3600)">Выпечка пирога (60 мин)</button>
+<button class="preset-btn" onclick="setCustom()">Свое время</button>
+</div>
+</div>
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+<script>
+let totalTime = 0;
+let remainingTime = 0;
+let timerInterval = null;
+const circle = document.getElementById('timerCircle');
+const display = document.getElementById('timeDisplay');
+const status = document.getElementById('statusText');
+function formatTime(sec) {
+const m = Math.floor(sec / 60).toString().padStart(2, '0');
+const s = (sec % 60).toString().padStart(2, '0');
+return `${m}:${s}`;
+}
+function updateVisuals() {
+display.innerText = formatTime(remainingTime);
+const pct = totalTime > 0 ? ((totalTime - remainingTime) / totalTime) * 360 : 0;
+circle.style.background = `conic-gradient(var(--accent) ${pct}deg, var(--border) ${pct}deg)`;
+if(remainingTime <= 0 && totalTime > 0) {
+clearInterval(timerInterval);
+status.innerText = "ГОТОВО! 🔔";
+alert("Время вышло!");
+}
+}
+function setTime(seconds) {
+totalTime = seconds;
+remainingTime = seconds;
+updateVisuals();
+status.innerText = "Нажмите Старт";
+}
+function setCustom() {
+const mins = prompt("Введите минуты:", "5");
+if(mins) setTime(parseInt(mins)*60);
+}
+document.getElementById('startBtn').onclick = () => {
+if(timerInterval) clearInterval(timerInterval);
+status.innerText = "Идет отсчет...";
+timerInterval = setInterval(() => {
+remainingTime--;
+updateVisuals();
+}, 1000);
+};
+document.getElementById('resetBtn').onclick = () => {
+clearInterval(timerInterval);
+setTime(0);
+};
+// Init audio context for beep (optional advanced feature)
+</script>
+</body>
+</html>
