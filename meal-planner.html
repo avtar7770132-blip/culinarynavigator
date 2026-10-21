@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>План меню — Кулинарный Штурман</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>📅 План меню на неделю</h1>
+<div class="calc-wrapper">
+<table style="width:100%;border-collapse:collapse">
+<tr><th style="text-align:left;padding:10px">День</th><th style="text-align:left;padding:10px">Завтрак</th><th style="text-align:left;padding:10px">Обед</th><th style="text-align:left;padding:10px">Ужин</th></tr>
+<tbody id="weekBody"></tbody>
+</table>
+<button onclick="savePlan()" class="btn-link" style="margin-top:20px;width:100%">Сохранить план</button>
+<div id="shoppingList" class="result-box" style="margin-top:20px"></div>
+</div>
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+<script>
+const days = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+const body = document.getElementById('weekBody');
+days.forEach(d => {
+body.innerHTML += `<tr>
+<td><strong>${d}</strong></td>
+<td><input type="text" placeholder="..." class="cell-input" data-day="${d}" data-meal="breakfast"></td>
+<td><input type="text" placeholder="..." class="cell-input" data-day="${d}" data-meal="lunch"></td>
+<td><input type="text" placeholder="..." class="cell-input" data-day="${d}" data-meal="dinner"></td>
+</tr>`;
+});
+// Load saved
+const saved = JSON.parse(localStorage.getItem('weeklyMenu') || '{}');
+Object.keys(saved).forEach(key => {
+const input = document.querySelector(`[data-key="${key}"]`);
+if(input) input.value = saved[key];
+});
+function savePlan() {
+const inputs = document.querySelectorAll('.cell-input');
+const data = {};
+inputs.forEach(inp => {
+inp.setAttribute('data-key', inp.dataset.day + '-' + inp.dataset.meal);
+data[inp.getAttribute('data-key')] = inp.value;
+});
+localStorage.setItem('weeklyMenu', JSON.stringify(data));
+alert("План сохранен!");
+generateShoppingList(data);
+}
+function generateShoppingList(plan) {
+let list = "<h3>Список покупок (черновик):</h3><ul>";
+for(let key in plan) {
+if(plan[key]) list += `<li>${plan[key]}</li>`;
+}
+list += "</ul><small>Добавьте конкретные продукты вручную.</small>";
+document.getElementById('shoppingList').innerHTML = list;
+document.getElementById('shoppingList').classList.add('show');
+}
+</script>
+</body>
+</html>
