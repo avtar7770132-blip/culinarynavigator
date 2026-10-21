@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <!-- ГЛАВНАЯ -->
+   <url>
+      <loc>https://avtar7770132-blip.github.io/culinarynavigator/index.html</loc>
+      <lastmod>2026-10-21</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+   </url>
+   
+   <!-- КАЛЬКУЛЯТОРЫ (КОРЕНЬ) -->
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/recipe-scaler.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/food-cost.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/unit-converter.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/calorie-counter.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/marinade-calculator.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/coffee-brewing.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/dough-calc.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/oven-converter.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/canning-calc.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/kitchen-timer.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/meal-planner.html</loc><lastmod>2026-10-21</lastmod><priority>0.8</priority></url>
+
+   <!-- БЛОГ (INDEX) -->
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/index.html</loc><lastmod>2026-10-21</lastmod><priority>0.7</priority></url>
+
+   <!-- СТАТЬИ БЛОГА -->
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/science-of-boiling-eggs.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/pizza-vs-delivery.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/flour-types-explained.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/coffee-ratios-guide.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/marinade-masterclass.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/calories-myths.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/meal-prep-weekend.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/spices-storage.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/perfect-pizza-dough.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/gas-vs-electric-cooking.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+   <url><loc>https://avtar7770132-blip.github.io/culinarynavigator/blog/safe-canning-guide.html</loc><lastmod>2026-10-21</lastmod><priority>0.6</priority></url>
+</urlset>
