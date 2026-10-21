@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Стоимость блюда — Кулинарный Штурман</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>💰 Стоимость блюда</h1>
+<p class="subtitle">Посчитай, во сколько обойдется твой ужин.</p>
+<div class="calc-wrapper">
+<form id="costForm">
+<div class="form-group"><label for="dishName">Название блюда</label><input type="text" id="dishName" placeholder="Например: Плов"></div>
+<div class="form-group"><label for="itemsList">Продукты (Цена руб/кг или шт, Количество)</label><textarea id="itemsList" rows="4" placeholder="Рис, 80, 0.5&#10;Мясо, 400, 0.4&#10;Морковь, 50, 0.2">Рис, 80, 0.5
+Мясо, 400, 0.4
+Морковь, 50, 0.2</textarea></div>
+<div class="form-group"><label for="servingsCost">Количество порций</label><input type="number" id="servingsCost" value="4" min="1"></div>
+<div class="form-group"><label for="restPrice">Цена аналога в ресторане (руб)</label><input type="number" id="restPrice" value="600" min="0"></div>
+<button type="submit" class="btn-link" style="width:100%">Посчитать экономию</button>
+</form>
+<div id="resultCost" class="result-box"></div>
+</div>
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+<script>
+document.getElementById('costForm').addEventListener('submit', function(e){
+e.preventDefault();
+const itemsText = document.getElementById('itemsList').value;
+const servings = parseInt(document.getElementById('servingsCost').value);
+const restPrice = parseFloat(document.getElementById('restPrice').value);
+const dishName = document.getElementById('dishName').value || "Блюдо";
+let totalCost = 0;
+const lines = itemsText.split('\n');
+lines.forEach(line => {
+const parts = line.split(',');
+if(parts.length >= 3) {
+const pricePerUnit = parseFloat(parts[1]);
+const qty = parseFloat(parts[2]);
+totalCost += pricePerUnit * qty;
+}
+});
+const costPerPortion = (totalCost / servings).toFixed(2);
+const savings = (restPrice - costPerPortion).toFixed(2);
+const percentSaved = ((savings / restPrice) * 100).toFixed(0);
+let msg = '';
+if(savings > 0) {
+msg = `<h3>Экономия очевидна! 💸</h3><p>Себестоимость одной порции "${dishName}": <strong>${costPerPortion} руб</strong>.</p><p>В ресторане это стоит ${restPrice} руб.</p><p class="result-value">Вы экономите ${savings} руб (${percentSaved}%) на каждой порции!</p>`;
+} else {
+msg = `<h3>Приготовление дороже 😐</h3><p>Себестоимость: ${costPerPortion} руб. Ресторан: ${restPrice} руб.</p><p>Иногда проще заказать доставку!</p>`;
+}
+const box = document.getElementById('resultCost');
+box.innerHTML = msg;
+box.classList.add('show');
+box.scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
