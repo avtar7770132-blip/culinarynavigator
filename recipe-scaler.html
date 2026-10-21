@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пересчет рецепта — Кулинарный Штурман</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+<header style="margin-bottom:20px"><a href="index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
+<h1>🥣 Пересчет рецепта</h1>
+<p class="subtitle">Измени количество порций — получи новые веса ингредиентов.</p>
+<div class="calc-wrapper">
+<form id="scalerForm">
+<div class="form-group"><label for="origServings">Оригинальное кол-во порций</label><input type="number" id="origServings" value="4" min="1"></div>
+<div class="form-group"><label for="newServings">Новое кол-во порций</label><input type="number" id="newServings" value="8" min="1"></div>
+<div class="form-group"><label for="ingredients">Ингредиенты (формат: Название, Вес г)</label><textarea id="ingredients" rows="5" placeholder="Мука, 500&#10;Сахар, 200&#10;Яйца, 4 шт">Мука, 500
+Сахар, 200
+Яйца, 4 шт</textarea></div>
+<button type="submit" class="btn-link" style="width:100%">Пересчитать</button>
+</form>
+<div id="resultBox" class="result-box"></div>
+</div>
+<footer>© 2026 Кулинарный Штурман</footer>
+</div>
+<script>
+// Load saved data if exists
+window.onload = function() {
+const saved = localStorage.getItem('lastRecipeData');
+if(saved) document.getElementById('ingredients').value = saved;
+};
+document.getElementById('scalerForm').addEventListener('submit', function(e){
+e.preventDefault();
+const orig = parseFloat(document.getElementById('origServings').value);
+const target = parseFloat(document.getElementById('newServings').value);
+const text = document.getElementById('ingredients').value;
+localStorage.setItem('lastRecipeData', text); // Save to browser memory
+if(!orig || !target) return alert("Введите числа");
+const ratio = target / orig;
+const lines = text.split('\n');
+let resultHtml = '<h3>Результат для '+target+' порций:</h3><ul>';
+lines.forEach(line => {
+if(!line.trim()) return;
+const parts = line.split(',');
+if(parts.length >= 2) {
+const name = parts[0].trim();
+const valStr = parts[1].trim();
+// Extract number and unit
+const match = valStr.match(/([\d\.]+)\s*(.*)/);
+if(match) {
+const num = parseFloat(match[1]);
+const unit = match[2];
+const newVal = (num * ratio).toFixed(unit.includes('шт') ? 0 : 1);
+resultHtml += `<li>${name}: <strong>${newVal} ${unit}</strong></li>`;
+} else {
+resultHtml += `<li>${line} (не изменено)</li>`;
+}
+} else {
+resultHtml += `<li>${line}</li>`;
+}
+});
+resultHtml += '</ul>';
+const box = document.getElementById('resultBox');
+box.innerHTML = resultHtml;
+box.classList.add('show');
+box.scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
