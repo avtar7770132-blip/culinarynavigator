@@ -14,155 +14,77 @@
     })(window, document, "clarity", "script", "z26px2msaf");
 </script>
 <style>
-.card-icon-large { font-size: 3rem; text-align: center; margin-bottom: 15px; }
 .tefal-banner {
     background: linear-gradient(135deg, #E91E63, #C2185B);
     border-radius: 16px;
-    padding: 30px;
-    margin: 40px 0;
+    padding: 25px;
+    margin: 30px 0;
     text-align: center;
     color: white;
     box-shadow: 0 8px 25px rgba(233, 30, 99, 0.3);
 }
-.tefal-banner h3 { margin-top: 0; font-size: 1.8rem; }
-.tefal-banner p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
+.tefal-banner h3 { margin-top: 0; font-size: 1.6rem; }
+.tefal-banner p { font-size: 1rem; opacity: 0.9; margin-bottom: 15px; }
 .tefal-btn {
     display: inline-block;
     background: white;
     color: #C2185B;
     text-decoration: none;
-    padding: 14px 32px;
+    padding: 12px 28px;
     border-radius: 8px;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all 0.3s;
 }
 .tefal-btn:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-.ad-mark-footer { font-size: 0.7rem; color: rgba(255,255,255,0.7); margin-top: 15px; display: block; }
+.ad-mark { font-size: 0.7rem; color: rgba(255,255,255,0.7); margin-top: 12px; display: block; line-height: 1.4; }
+.card img { width: 100%; height: 150px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
 </style>
 </head>
 <body>
 <div class="container">
 
-<header style="text-align:center; padding: 40px 0;">
-<h1 style="font-size: 2.5rem; color: #E91E63;">Кулинарный Штурман</h1>
-<p class="subtitle" style="font-size: 1.2rem;">Считай порции. Планируй меню. Готовь без ошибок.</p>
-</header>
-
-<div class="grid-container">
-<!-- 1. Пересчёт рецепта -->
-<div class="card fade-in-up">
-    <div class="card-icon-large">🍳</div>
-    <div class="card-title">Пересчёт рецепта</div>
-    <div class="card-desc">Адаптируй ингредиенты под нужное количество порций.</div>
-    <a href="recipe-scaler.html" class="btn-link">Пересчитать →</a>
+<!-- ГЛАВНЫЙ БАННЕР -->
+<div class="hero-section">
+    <img src="hero-kitchen.jpg" alt="Кулинарный Штурман" class="hero-img">
+    <div class="hero-text-overlay">
+        <h2>Кулинарный Штурман</h2>
+        <p>Считай порции. Планируй меню. Готовь без ошибок.</p>
+    </div>
 </div>
 
-<!-- 2. Калории -->
-<div class="card fade-in-up">
-    <div class="card-icon-large"></div>
-    <div class="card-title">Счётчик калорий</div>
-    <div class="card-desc">Подсчитай энергетическую ценность блюда.</div>
-    <a href="calorie-counter.html" class="btn-link">Посчитать →</a>
-</div>
-
-<!-- 3. Конвертер мер -->
-<div class="card fade-in-up">
-    <div class="card-icon-large">⚖️</div>
-    <div class="card-title">Конвертер мер</div>
-    <div class="card-desc">Грамм в ложки, мл в стаканы и обратно.</div>
-    <a href="unit-converter.html" class="btn-link">Конвертировать →</a>
-</div>
-
-<!-- 4. Таймер -->
-<div class="card fade-in-up">
-    <div class="card-icon-large">️</div>
-    <div class="card-title">Кухонный таймер</div>
-    <div class="card-desc">Несколько таймеров одновременно для сложных блюд.</div>
-    <a href="kitchen-timer.html" class="btn-link">Запустить →</a>
-</div>
-
-<!-- 5. Тесто -->
-<div class="card fade-in-up">
-    <div class="card-icon-large"></div>
-    <div class="card-title">Калькулятор теста</div>
-    <div class="card-desc">Идеальные пропорции для дрожжевого и слоёного теста.</div>
-    <a href="dough-calc.html" class="btn-link">Рассчитать →</a>
-</div>
-
-<!-- 6. Маринад -->
-<div class="card fade-in-up">
-    <div class="card-icon-large">🥩</div>
-    <div class="card-title">Калькулятор маринада</div>
-    <div class="card-desc">Сколько соли, уксуса и специй на кг мяса?</div>
-    <a href="marinade-calculator.html" class="btn-link">Рассчитать →</a>
-</div>
-
-<!-- 7. Консервация -->
-<div class="card fade-in-up">
-    <div class="card-icon-large"></div>
-    <div class="card-title">Калькулятор закаток</div>
-    <div class="card-desc">Расчёт рассола и маринада для консервации.</div>
-    <a href="canning-calc.html" class="btn-link">Посчитать →</a>
-</div>
-
-<!-- 8. Духовка -->
-<div class="card fade-in-up">
-    <div class="card-icon-large"></div>
-    <div class="card-title">Конвертер духовки</div>
-    <div class="card-desc">Газовая ↔ электрическая ↔ конвекция.</div>
-    <a href="oven-converter.html" class="btn-link">Перевести →</a>
-</div>
-
-<!-- 9. Кофе -->
-<div class="card fade-in-up">
-    <div class="card-icon-large">☕</div>
-    <div class="card-title">Калькулятор кофе</div>
-    <div class="card-desc">Пропорции зерна и воды для идеальной чашки.</div>
-    <a href="coffee-brewing.html" class="btn-link">Заварить →</a>
-</div>
-
-<!-- 10. Стоимость блюда -->
-<div class="card fade-in-up">
-    <div class="card-icon-large">💰</div>
-    <div class="card-title">Себестоимость блюда</div>
-    <div class="card-desc">Узнай реальную цену домашней еды.</div>
-    <a href="food-cost.html" class="btn-link">Посчитать →</a>
-</div>
-
-<!-- 11. Планировщик -->
-<div class="card fade-in-up">
-    <div class="card-icon-large"></div>
-    <div class="card-title">Планировщик меню</div>
-    <div class="card-desc">Составь рацион на неделю за 5 минут.</div>
-    <a href="meal-planner.html" class="btn-link">Спланировать →</a>
-</div>
-
-<!-- 12. Хранение специй -->
-<div class="card fade-in-up">
-    <div class="card-icon-large">🌶️</div>
-    <div class="card-title">Хранение специй</div>
-    <div class="card-desc">Сроки годности и условия хранения приправ.</div>
-    <a href="spices-storage.html" class="btn-link">Узнать →</a>
-</div>
-</div>
-
-<!-- РЕКЛАМНЫЙ БАННЕР TEFAL -->
+<!-- РЕКЛАМА TEFAL СРАЗУ ПОД ШАПКОЙ -->
 <div class="tefal-banner">
     <h3>✨ Техника Tefal для идеальной кухни</h3>
     <p>Сковороды, мультиварки и блендеры со скидкой до 40%</p>
     <a href="https://ru.trackerpro.org/6adce44c95746?erid=2SDnjdKPSVV" target="_blank" rel="nofollow noopener" class="tefal-btn">Перейти в магазин Tefal →</a>
-    <span class="ad-mark-footer">Реклама. Рекламодатель ООО "Гипер", ИНН 7813122311. Сайт https://tefal.ru<br>erid: 2SDnjdKPSVV</span>
+    <span class="ad-mark">Реклама. Рекламодатель ООО "Гипер", ИНН 7813122311. Сайт https://tefal.ru<br>erid: 2SDnjdKPSVV</span>
 </div>
 
-<!-- БЛОГ -->
-<a href="blog/index.html" class="card fade-in-up blog-highlight" style="text-align:center; padding: 30px;">
-    <div style="font-size:3rem; margin-bottom:10px;"></div>
+<header>
+<h1>Твои инструменты для кухни</h1>
+<p class="subtitle">Бесплатные калькуляторы, конвертеры и планировщики для идеальных блюд.</p>
+</header>
+
+<div class="grid-container">
+<div class="card fade-in-up"><img src="recipe-scaler.jpg" alt=""><div class="card-title">Пересчёт рецепта</div><div class="card-desc">Адаптируй ингредиенты под нужное количество порций.</div><a href="recipe-scaler.html" class="btn-link">Пересчитать →</a></div>
+<div class="card fade-in-up"><img src="calorie-counter.jpg" alt=""><div class="card-title">Счётчик калорий</div><div class="card-desc">Подсчитай энергетическую ценность блюда.</div><a href="calorie-counter.html" class="btn-link">Посчитать →</a></div>
+<div class="card fade-in-up"><img src="unit-converter.jpg" alt=""><div class="card-title">Конвертер мер</div><div class="card-desc">Грамм в ложки, мл в стаканы и обратно.</div><a href="unit-converter.html" class="btn-link">Конвертировать →</a></div>
+<div class="card fade-in-up"><img src="kitchen-timer.jpg" alt=""><div class="card-title">Кухонный таймер</div><div class="card-desc">Несколько таймеров одновременно для сложных блюд.</div><a href="kitchen-timer.html" class="btn-link">Запустить →</a></div>
+<div class="card fade-in-up"><img src="dough-calc.jpg" alt=""><div class="card-title">Калькулятор теста</div><div class="card-desc">Идеальные пропорции для дрожжевого и слоёного теста.</div><a href="dough-calc.html" class="btn-link">Рассчитать →</a></div>
+<div class="card fade-in-up"><img src="marinade-calculator.jpg" alt=""><div class="card-title">Калькулятор маринада</div><div class="card-desc">Сколько соли, уксуса и специй на кг мяса?</div><a href="marinade-calculator.html" class="btn-link">Рассчитать →</a></div>
+<div class="card fade-in-up"><img src="canning-calc.jpg" alt=""><div class="card-title">Калькулятор закаток</div><div class="card-desc">Расчёт рассола и маринада для консервации.</div><a href="canning-calc.html" class="btn-link">Посчитать →</a></div>
+<div class="card fade-in-up"><img src="oven-converter.jpg" alt=""><div class="card-title">Конвертер духовки</div><div class="card-desc">Газовая ↔ электрическая ↔ конвекция.</div><a href="oven-converter.html" class="btn-link">Перевести →</a></div>
+<div class="card fade-in-up"><img src="coffee-brewing.jpg" alt=""><div class="card-title">Калькулятор кофе</div><div class="card-desc">Пропорции зерна и воды для идеальной чашки.</div><a href="coffee-brewing.html" class="btn-link">Заварить →</a></div>
+<div class="card fade-in-up"><img src="food-cost.jpg" alt=""><div class="card-title">Себестоимость блюда</div><div class="card-desc">Узнай реальную цену домашней еды.</div><a href="food-cost.html" class="btn-link">Посчитать →</a></div>
+<div class="card fade-in-up"><img src="meal-planner.jpg" alt=""><div class="card-title">Планировщик меню</div><div class="card-desc">Составь рацион на неделю за 5 минут.</div><a href="meal-planner.html" class="btn-link">Спланировать →</a></div>
+<div class="card fade-in-up"><img src="spices-storage.jpg" alt=""><div class="card-title">Хранение специй</div><div class="card-desc">Сроки годности и условия хранения приправ.</div><a href="spices-storage.html" class="btn-link">Узнать →</a></div>
+</div>
+
+<a href="blog/index.html" class="card fade-in-up blog-highlight" style="text-align:center; padding: 30px; margin-top: 30px;">
+    <div style="font-size:3rem; margin-bottom:10px;">📖</div>
     <div class="card-title" style="font-size:1.8rem; margin-bottom:10px;">Блог Кулинарного Штурмана</div>
-    <div class="card-desc" style="font-size:1.1rem; max-width:600px; margin:0 auto;">
-        Лайфхаки, секреты шеф-поваров и обзоры техники. 
-        <strong>Читать статьи →</strong>
-    </div>
+    <div class="card-desc" style="font-size:1.1rem; max-width:600px; margin:0 auto;">Лайфхаки, секреты шеф-поваров и обзоры техники. <strong>Читать статьи →</strong></div>
 </a>
 
 <footer style="text-align:center; margin-top:40px; color:#888;">© 2026 Кулинарный Штурман · Информация справочная.</footer>
