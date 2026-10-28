@@ -45,19 +45,31 @@
             line-height: 1.4;
         }
         .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
-        .blog-highlight {
-            text-align:center;
+        
+        /* ИСПРАВЛЕННЫЙ СТИЛЬ ДЛЯ БЛОГА */
+        .blog-link-card {
+            display: block;
+            max-width: 700px;
+            margin: 40px auto;
             padding: 30px;
-            margin-top: 30px;
-            background: #fff;
+            background: #ffffff;
             border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
             text-decoration: none;
             color: inherit;
-            display: block;
-            transition: transform 0.2s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f1f5f9;
         }
-        .blog-highlight:hover { transform: translateY(-5px); }
+        .blog-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(233, 30, 99, 0.15);
+            border-color: #E91E63;
+        }
+        .blog-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .blog-title { font-size: 1.5rem; font-weight: bold; color: #1e293b; margin-bottom: 10px; }
+        .blog-desc { font-size: 1rem; color: #64748b; line-height: 1.5; }
+        
         .cross-link-box {
             background: #eff6ff;
             border: 1px dashed #3b82f6;
@@ -89,16 +101,19 @@
             <p>Считай порции. Планируй меню. Готовь без ошибок.</p>
         </div>
     </div>
+    
     <div class="tefal-banner">
         <h3>✨ Техника Tefal для идеальной кухни</h3>
         <p>Сковороды, мультиварки и блендеры со скидкой до 40%</p>
         <a href="https://ru.trackerpro.org/6adce44c95746?erid=2SDnjdKPSVV" target="_blank" rel="nofollow noopener" class="tefal-btn">Перейти в магазин Tefal →</a>
         <span class="ad-mark">Реклама. Рекламодатель ООО "Гипер", ИНН 7813122311. Сайт https://tefal.ru<br>erid: 2SDnjdKPSVV</span>
     </div>
+
     <header>
         <h1>Твои инструменты для кухни</h1>
         <p class="subtitle">Бесплатные калькуляторы, конвертеры и планировщики для идеальных блюд.</p>
     </header>
+
     <div class="grid-container">
         <div class="card fade-in-up"><img src="recipe-scaler.jpg" alt=""><div class="card-title">Пересчёт рецепта</div><div class="card-desc">Адаптируй ингредиенты под нужное количество порций.</div><a href="recipe-scaler.html" class="btn-link">Пересчитать →</a></div>
         <div class="card fade-in-up"><img src="calorie-counter.jpg" alt=""><div class="card-title">Счётчик калорий</div><div class="card-desc">Подсчитай энергетическую ценность блюда.</div><a href="calorie-counter.html" class="btn-link">Посчитать →</a></div>
@@ -113,16 +128,21 @@
         <div class="card fade-in-up"><img src="meal-planner.jpg" alt=""><div class="card-title">Планировщик меню</div><div class="card-desc">Составь рацион на неделю за 5 минут.</div><a href="meal-planner.html" class="btn-link">Спланировать →</a></div>
         <div class="card fade-in-up"><img src="spices-storage.jpg" alt=""><div class="card-title">Хранение специй</div><div class="card-desc">Сроки годности и условия хранения приправ.</div><a href="spices-storage.html" class="btn-link">Узнать →</a></div>
     </div>
+
+    <!-- ПЕРЕЛИНКОВКА НА ЗДОРОВЬЕ -->
     <div class="cross-link-box">
-        <h4>🩺 Готовишь полезно? Проверь влияние на здоровье!</h4>
+        <h4> Готовишь полезно? Проверь влияние на здоровье!</h4>
         <p style="color:#64748b; font-size:0.95rem;">Используй наш калькулятор БЖУ и ИМТ из проекта «ЗдоровьеНавигатор», чтобы контролировать питание.</p>
         <a href="https://avtar7770132-blip.github.io/healthnavigator/bmi-calc.html" target="_blank" rel="noopener">Открыть ЗдоровьеНавигатор →</a>
     </div>
-    <a href="blog/kak-vybrat-multivarku.html" class="blog-highlight">
-        <div style="font-size:3rem; margin-bottom:10px;"></div>
-        <div class="card-title" style="font-size:1.8rem; margin-bottom:10px;">Как выбрать мультиварку: гид по функциям</div>
-        <div class="card-desc" style="font-size:1.1rem; max-width:600px; margin:0 auto;">Не переплатите за ненужные программы. Разбор мощности, чаш и безопасности + ссылка на технику.</div>
+
+    <!-- ИСПРАВЛЕННЫЙ БЛОК БЛОГА (ТЕПЕРЬ ЭТО КРАСИВАЯ КАРТОЧКА) -->
+    <a href="blog/kak-vybrat-multivarku.html" class="blog-link-card">
+        <span class="blog-icon">🍲</span>
+        <div class="blog-title">Как выбрать мультиварку: гид по функциям</div>
+        <div class="blog-desc">Не переплатите за ненужные программы. Разбор мощности, чаш и безопасности + ссылка на технику.</div>
     </a>
+
     <footer style="text-align:center; margin-top:40px; color:#888;">© 2026 Кулинарный Штурман · Информация справочная.</footer>
 </div>
 </body>
