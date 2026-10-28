@@ -1,42 +1,167 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Блог Кулинарного Штурмана</title>
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="stylesheet" href="../styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог Кулинарного Штурмана · Статьи и советы</title>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "z26px2msaf");
+    </script>
+    <style>
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 30px; }
+        .blog-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.2s; text-decoration: none; color: inherit; display: block; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .blog-card img { width: 100%; height: 180px; object-fit: cover; }
+        .blog-content { padding: 20px; }
+        .blog-title { font-size: 1.2rem; font-weight: bold; color: #1e293b; margin-bottom: 10px; line-height: 1.4; }
+        .blog-desc { font-size: 0.95rem; color: #64748b; line-height: 1.5; margin-bottom: 15px; }
+        .read-more { color: #E91E63; font-weight: bold; font-size: 0.9rem; }
+        header h1 { color: #1e293b; font-size: 2.2rem; margin-bottom: 10px; }
+        .subtitle { color: #64748b; max-width: 600px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #E91E63; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
 </head>
-<!-- MICROSOFT CLARITY НАЧАЛО -->
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "z17owgjy4p");
-</script>
-<!-- MICROSOFT CLARITY КОНЕЦ --><body>
-<div class="container">
-<header style="margin-bottom:20px"><a href="../index.html" style="color:var(--accent);font-weight:bold;text-decoration:none">← На главную</a></header>
-<h1>📖 Блог шеф-повара</h1>
-<p class="subtitle">Наука вкуса, экономия времени и денег. Читай и готовь уверенно.</p>
-<div class="grid-container">
-<!-- СТАРЫЕ 8 -->
-<article class="card fade-in-up"><div><span style="background:#E07A5F;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ЯЙЦА</span><h3 class="card-title" style="margin-top:10px">Почему 2 минуты решают всё при варке яиц</h3><p class="card-desc">Разница между всмятку и вкрутую крошечная. Узнай точное время для идеального желтка.</p></div><a href="science-of-boiling-eggs.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#81B29A;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ЭКОНОМИКА</span><h3 class="card-title" style="margin-top:10px">Домашняя пицца vs Доставка: честный расчет</h3><p class="card-desc">Сколько стоит настоящая Маргарита из печи? Считаем себестоимость и сравниваем с доставкой.</p></div><a href="pizza-vs-delivery.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#f2cc8f;color:#3D405B;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ИНГРЕДИЕНТЫ</span><h3 class="card-title" style="margin-top:10px">Мука высшего сорта или первого? Что выбрать</h3><p class="card-desc">Не все виды муки одинаковы. Разбираем клейковину, белизну и влияние на тесто.</p></div><a href="flour-types-explained.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#3D405B;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">НАПИТКИ</span><h3 class="card-title" style="margin-top:10px">Золотое правило кофе: пропорции для бариста дома</h3><p class="card-desc">Как сварить эспрессо и капучино без дорогой машины. Вес зерна, воды и молока.</p></div><a href="coffee-ratios-guide.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#c96a50;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">МЯСО</span><h3 class="card-title" style="margin-top:10px">Мастер-класс по маринадам: секрет сочного мяса</h3><p class="card-desc">Кислота, жир, соль и сахар. Формула идеального баланса для шашлыка и запеканки.</p></div><a href="marinade-masterclass.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#eab308;color:#333;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ЗДОРОВЬЕ</span><h3 class="card-title" style="margin-top:10px">Мифы о калориях: почему «пустые» калории — это неправда</h3><p class="card-desc">Что такое КБЖУ на самом деле и почему важен не только итоговый вес блюда.</p></div><a href="calories-myths.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#10b981;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ПЛАН</span><h3 class="card-title" style="margin-top:10px">Meal Prep: как готовить всю неделю за 2 часа</h3><p class="card-desc">Лайфхак занятых людей. Воскресное утро обеспечит тебя здоровой едой на 5 дней.</p></div><a href="meal-prep-weekend.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#8b5cf6;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">СПЕЦИИ</span><h3 class="card-title" style="margin-top:10px">Где хранить специи, чтобы они не выдохлись</h3><p class="card-desc">Свет, тепло и влага — три врага пряностей. Как продлить жизнь твоим приправам.</p></div><a href="spices-storage.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<body>
+<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
 
-<!-- НОВЫЕ 3 -->
-<article class="card fade-in-up"><div><span style="background:#f59e0b;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ВЫПЕЧКА</span><h3 class="card-title" style="margin-top:10px">Секрет хрустящей корочки: наука о тесте</h3><p class="card-desc">Baker's Percentage простыми словами. Почему профессионалы никогда не пишут «стакан муки».</p></div><a href="perfect-pizza-dough.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#ef4444;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ТЕХНИКА</span><h3 class="card-title" style="margin-top:10px">Газ против Электричества: как не спалить ужин</h3><p class="card-desc">Переводим бабушкины рецепты в современные реалии. Температурные ловушки.</p></div><a href="gas-vs-electric-cooking.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
-<article class="card fade-in-up"><div><span style="background:#0ea5e9;color:#fff;padding:4px 8px;border-radius:4px;font-size:.8rem;font-weight:bold">ЗАГОТОВКИ</span><h3 class="card-title" style="margin-top:10px">Безопасная консервация: химия вкуса и защиты</h3><p class="card-desc">Треугольник соли, сахара и уксуса. Как закрыть банки так, чтобы они стояли до мая.</p></div><a href="safe-canning-guide.html" style="color:var(--accent);font-weight:bold;text-decoration:none">Читать →</a></article>
+<a href="../index.html" class="back-link">← На главную Кулинарного Штурмана</a>
+
+<header style="text-align:center; margin-bottom: 40px;">
+    <h1>📚 Блог Кулинарного Штурмана</h1>
+    <p class="subtitle">Рецепты, техника и секреты идеальной кухни.</p>
+</header>
+
+<div class="blog-grid">
+
+<!-- НОВАЯ СТАТЬЯ ПРО МУЛЬТИВАРКУ (ДОБАВЛЕНА В СПИСОК) -->
+<a href="kak-vybrat-multivarku.html" class="blog-card">
+    <img src="../hero-kitchen.jpg" alt="Мультиварка">
+    <div class="blog-content">
+        <div class="blog-title">Как выбрать мультиварку: гид по функциям</div>
+        <div class="blog-desc">Не переплатите за ненужные программы. Разбор мощности, чаш и безопасности + ссылка на технику.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<!-- СУЩЕСТВУЮЩИЕ СТАТЬИ -->
+<a href="calories-myths.html" class="blog-card">
+    <img src="../food-macros.jpg" alt="Мифы о калориях">
+    <div class="blog-content">
+        <div class="blog-title">Мифы о калориях: правда и вымысел</div>
+        <div class="blog-desc">Почему «полезное» не всегда низкокалорийно, а «вредное» можно вписать в рацион.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="coffee-ratios-guide.html" class="blog-card">
+    <img src="../coffee-brewing.jpg" alt="Кофе">
+    <div class="blog-content">
+        <div class="blog-title">Золотая пропорция кофе: гайд по обжарке и помолу</div>
+        <div class="blog-desc">Как сварить идеальный эспрессо или фильтр дома без дорогого оборудования.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="flour-types-explained.html" class="blog-card">
+    <img src="../dough-calc.jpg" alt="Мука">
+    <div class="blog-content">
+        <div class="blog-title">Виды муки: чем отличается пшеничная от цельнозерновой</div>
+        <div class="blog-desc">Глютеновая сетка, зольность и белок. Какую муку брать для хлеба, а какую для блинов.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="gas-vs-electric-cooking.html" class="blog-card">
+    <img src="../oven-converter.jpg" alt="Плита">
+    <div class="blog-content">
+        <div class="blog-title">Газ vs Электричество: что лучше для готовки?</div>
+        <div class="blog-desc">Сравнение скорости нагрева, контроля температуры и безопасности плит.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="marinade-masterclass.html" class="blog-card">
+    <img src="../marinade-calculator.jpg" alt="Маринад">
+    <div class="blog-content">
+        <div class="blog-title">Мастер-класс по маринадам: кислотность и время</div>
+        <div class="blog-desc">Почему уксус делает мясо жестким, а киви — кашей. Идеальные формулы для шашлыка.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="meal-prep-weekend.html" class="blog-card">
+    <img src="../meal-planner.jpg" alt="Meal Prep">
+    <div class="blog-content">
+        <div class="blog-title">Meal Prep: готовим еду на неделю за 3 часа</div>
+        <div class="blog-desc">Планирование, контейнеры и базовые рецепты. Экономия времени и денег.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="perfect-pizza-dough.html" class="blog-card">
+    <img src="../dough-calc.jpg" alt="Пицца">
+    <div class="blog-content">
+        <div class="blog-title">Идеальное тесто для пиццы: неаполитанский стиль</div>
+        <div class="blog-desc">Холодная ферментация, тип муки 00 и температура выпечки. Рецепт от шефа.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="pizza-vs-delivery.html" class="blog-card">
+    <img src="../food-cost.jpg" alt="Доставка">
+    <div class="blog-content">
+        <div class="blog-title">Домашняя пицца vs Доставка: считаем экономию</div>
+        <div class="blog-desc">Реальная себестоимость ингредиентов против цены в приложении. Калькулятор внутри.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="safe-canning-guide.html" class="blog-card">
+    <img src="../canning-calc.jpg" alt="Консервация">
+    <div class="blog-content">
+        <div class="blog-title">Безопасная консервация: как избежать ботулизма</div>
+        <div class="blog-desc">pH, стерилизация и герметичность. Чек-лист перед закаткой банок.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="science-of-boiling-eggs.html" class="blog-card">
+    <img src="../kitchen-timer.jpg" alt="Яйца">
+    <div class="blog-content">
+        <div class="blog-title">Наука варки яиц: всмятку, в мешочек и вкрутую</div>
+        <div class="blog-desc">Температурные графики коагуляции белка. Тайминг с точностью до секунды.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="spices-storage.html" class="blog-card">
+    <img src="../spices-storage.jpg" alt="Специи">
+    <div class="blog-content">
+        <div class="blog-title">Хранение специй: сроки годности и враги вкуса</div>
+        <div class="blog-desc">Свет, влага и тепло убивают аромат. Как правильно хранить перец, травы и смеси.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
+<a href="spices.html" class="blog-card">
+    <img src="../spices-storage.jpg" alt="Специи">
+    <div class="blog-content">
+        <div class="blog-title">Гид по специям: сочетания и замены</div>
+        <div class="blog-desc">Чем заменить шафран? С чем дружит кориандр? Таблица совместимости вкусов.</div>
+        <span class="read-more">Читать статью →</span>
+    </div>
+</a>
+
 </div>
-<footer>© 2026 Кулинарный Штурман · Все расчеты справочные.</footer>
+
+<footer style="text-align:center; margin-top:50px; color:#888; border-top:1px solid #eee; padding-top:20px;">© 2026 Кулинарный Штурман</footer>
 </div>
 </body>
 </html>
